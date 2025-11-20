@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../progects"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "fall-session"
+	}
+}

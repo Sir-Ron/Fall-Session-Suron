@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeGuard | Services & Features</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #046e78, #74d55e);
+            color: #fff;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        /* Paste your header from index.html here */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Roboto, sans-serif;
+        }
+
+        /* Body */
+        body {
+            background: linear-gradient(to right, #046e78, #74d55e);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #111;
+            padding: 0.75rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Logo Section */
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            color: #00c896;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 1rem;
+            padding: 6px 16px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #00c896;
+            border-color: #00c896;
+            background-color: rgba(0, 200, 150, 0.1);
+        }
+
+        /* Highlighted Nav Link */
+        .book {
+            color: #74d55e;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            margin-top: 100px;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: #f1f1f1;
+        }
+
+        .button {
+            text-align: center;
+            background-color: #5cab4a;
+            border: none;
+            color: white;
+            padding: 12px 36px;
+            font-size: 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #74d55e;
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features-section {
+            text-align: center;
+            padding: 120px 20px;
+            background-color: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(4px);
+        }
+
+        .features-section h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+
+        .features-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .page-container {
+            margin-top: 120px;
+        }
+
+        /* ======== Section Base Style ======== */
+        section {
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section:nth-child(odd) {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        section:nth-child(even) {
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #00c896;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #f1f1f1;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        hr {
+            width: 60%;
+            margin: 40px auto;
+            border: none;
+            height: 2px;
+            background-color: #00c896;
+            border-radius: 2px;
+        }
+
+        /* ======== Section Two Cards ======== */
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            width: 280px;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .card h3 {
+            color: #00c896;
+            margin-bottom: 10px;
+        }
+
+        /* ===== Contact Form Styling ===== */
+        .contact-form {
+            max-width: 500px;
+            margin: 40px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 2px solid #00c896;
+            background-color: rgba(0, 200, 150, 0.1);
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #b0f0d3;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            box-shadow: 0 0 12px #00c896;
+            background-color: rgba(0, 200, 150, 0.15);
+        }
+
+        .contact-form button {
+            background-color: #00c896;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #04b283;
+            transform: translateY(-2px);
+        }
+
+        /* ===== Call Agent Button Styling ===== */
+        .call-agent {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .call-agent p {
+            color: #e0fff3;
+            margin-bottom: 10px;
+        }
+
+        .call-button {
+            display: inline-block;
+            background-color: #00c896;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .call-button:hover {
+            background-color: #04b283;
+            transform: translateY(-3px);
+        }
+
+
+        /* ======== Back to Top Button ======== */
+        #backToTop {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: #00c896;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.3s ease;
+            z-index: 200;
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #backToTop:hover {
+            background-color: #04b283;
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 70px 20px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #backToTop {
+                bottom: 25px;
+                right: 25px;
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
+        }
+
+        /* ===== Search Bar Styling ===== */
+        .search-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-container input {
+            width: 300px;
+            max-width: 90%;
+            padding: 12px 15px;
+            border-radius: 25px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+            border: 2px solid #00c896;
+            background-color: rgba(0, 200, 150, 0.1);
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        .search-container input:focus {
+            box-shadow: 0 0 10px #00c896;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Paste your header from index.html here -->
+    <header class="main-header">
+        <div class="logo-section">
+            <img class="logo"
+                src="file:///Users/suronbradshaw/Desktop/Screenshot%202025-07-17%20at%2012.05.04%E2%80%AFPM.png"
+                alt="LifeGuard Logo">
+            <h1 class="site-title">LifeGuard</h1>
+        </div>
+        <nav class="nav-bar">
+            <a href="file:///Users/suronbradshaw/fall-session/index.html" class="nav-link">Home</a>
+            <a href="file:///Users/suronbradshaw/fall-session/about.html" class="nav-link">About</a>
+            <a href="file:///Users/suronbradshaw/fall-session/services.html" class="nav-link">Services</a>
+            <a href="file:///Users/suronbradshaw/fall-session/contact.html" class="nav-link">Contact</a>
+            <a href="#booking" class="nav-link book">Book a Free Meeting</a>
+        </nav>
+    </header>
+    <div class="page-container">
+        <!-- ======= FEATURE SECTION 1 ======= -->
+        <section id="feature1">
+            <h2>Search Guard Engine</h2>
+            <hr>
+            <p>Search for your problem here. </p>
+            <!-- ===== Search Bar Template ===== -->
+            <div class="search-container">
+                <input type="text" placeholder="Type here..." aria-label="Search" />
+            </div>
+        </section>
+
+        <!-- ======= FEATURE SECTION 2 ======= -->
+        <section id="feature2">
+            <h2>Scholar Support</h2>
+            <hr>
+            <div class="cards">
+                <div class="card">
+                    <h3>Tutoring</h3>
+                    <p>Find a tutor for you in your education, in person or online for many different subjects.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Expert Resources</h3>
+                    <p>Where to find study guides, tips, and other school realted tools to help with assignments.</p>
+                </div>
+                <div class="card">
+                    <h3>College & Early Carrer</h3>
+                    <p>Find out what opportunities are given to you after high school and what paths are available for you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= FEATURE SECTION 3 ======= -->
+        <section id="feature3">
+            <h2>Contact Our Agents</h2>
+            <hr>
+            <p>Want to schedule a meeting with a life coach? Reach out to one of our coaches.</p>
+            <form class="contact-form">
+                <button type="submit">Get in contact with a coach</button>
+            </form>
+        </section>
+
+        <!-- ===== Back to Top Button ===== -->
+        <button id="backToTop" title="Go to top">↑</button>
+
+        <script>
+            // Fade-in on scroll
+            const sections = document.querySelectorAll('section');
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                },
+                { threshold: 0.2 }
+            );
+
+            sections.forEach(section => observer.observe(section));
+
+            // Back to Top Button behavior
+            const backToTopBtn = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        </script>
+</body>
+
+</html>

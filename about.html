@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeGuard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reset & base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Roboto, sans-serif;
+    }
+
+    /* Body */
+    body {
+      background: linear-gradient(to right, #046e78, #74d55e);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #111;
+      padding: 0.75rem 2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Logo Section */
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 45px;
+      height: 45px;
+      border-radius: 10px;
+    }
+
+    .site-title {
+      font-size: 1.5rem;
+      color: #00c896;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #e0e0e0;
+      font-size: 1rem;
+      padding: 6px 16px;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #00c896;
+      border-color: #00c896;
+      background-color: rgba(0, 200, 150, 0.1);
+    }
+
+    /* Highlighted Nav Link */
+    .book {
+      color: #74d55e;
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      margin-top: 100px;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      color: #f1f1f1;
+    }
+
+    .button {
+      text-align: center;
+      background-color: #5cab4a;
+      border: none;
+      color: white;
+      padding: 12px 36px;
+      font-size: 20px;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #74d55e;
+      transform: scale(1.05);
+    }
+
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .main-header {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .nav-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+
+      .hero-section h2 {
+        font-size: 2rem;
+      }
+
+      .features-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #046e78, #74d55e);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* Creator Section */
+    .creator-section {
+      margin-top: 120px;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .creator-header {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .creator-subtitle {
+      font-size: 1.2rem;
+      color: #e0e0e0;
+      margin-bottom: 60px;
+    }
+
+    .creator-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 50px;
+    }
+
+    .creator-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.2);
+      object-fit: cover;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .creator-info {
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .creator-info h3 {
+      font-size: 1.8rem;
+      color: #00c896;
+      margin-bottom: 15px;
+    }
+
+    .creator-info p {
+      font-size: 1.1rem;
+      color: #f1f1f1;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .skills-section {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .skills-section h3 {
+      font-size: 1.8rem;
+      color: #00c896;
+      margin-bottom: 25px;
+    }
+
+    .skills-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skill-tag {
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      transform: scale(1.05);
+    }
+
+    .contact-section {
+      text-align: center;
+      margin-top: 80px;
+      padding-bottom: 60px;
+    }
+
+    .contact-section h3 {
+      font-size: 1.8rem;
+      color: #00c896;
+      margin-bottom: 15px;
+    }
+
+    .contact-section p {
+      font-size: 1rem;
+      color: #e0e0e0;
+      margin-bottom: 25px;
+    }
+
+    .contact-button {
+      background-color: #5cab4a;
+      border: none;
+      color: white;
+      padding: 12px 36px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-button:hover {
+      background-color: #74d55e;
+      transform: scale(1.05);
+    }
+
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .creator-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .creator-info {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="logo-section">
+      <img class="logo" src="file:///Users/suronbradshaw/Desktop/Screenshot%202025-07-17%20at%2012.05.04%E2%80%AFPM.png"
+        alt="LifeGuard Logo">
+      <h1 class="site-title">LifeGuard</h1>
+    </div>
+    <nav class="nav-bar">
+      <a href="file:///Users/suronbradshaw/fall-session/index.html" class="nav-link">Home</a>
+      <a href="file:///Users/suronbradshaw/fall-session/about.html" class="nav-link">About</a>
+      <a href="file:///Users/suronbradshaw/fall-session/services.html" class="nav-link">Services</a>
+      <a href="file:///Users/suronbradshaw/fall-session/contact.html" class="nav-link">Contact</a>
+      <a href="#booking" class="nav-link book">Book a Free Meeting</a>
+    </nav>
+  </header>
+  <section class="creator-section">
+    <h2 class="creator-header">Meet the Creator</h2>
+    <p class="creator-subtitle">The mind behind LifeGuard — passionate about innovation, care, and protection.</p>
+
+    <div class="creator-container">
+      <img src="/Users/suronbradshaw/Desktop/Screenshot_2025-10-22_at_6.22.17_PM-removebg-preview.png"
+        alt="Creator Photo" class="creator-photo">
+
+      <div class="creator-info">
+        <h3>Suron Bradshaw</h3>
+        <p>Born on May 6 2011. I am friendly and funny. My passions are helping others and to try to stand out.</p>
+        <p>I made this bussness because I, like many others, struggle on figuring out on stuff like what to do? Where
+          do I start? Or how can I get a better understanding?
+          This made me think that they are people across all ages that feel the same way. Thus, I combined one of my
+          passions into a bussness. </p>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <h3>Get in Touch</h3>
+      <a class="contact-button" href="file:///Users/suronbradshaw/fall-session/contact.html">Contact Me</a>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
